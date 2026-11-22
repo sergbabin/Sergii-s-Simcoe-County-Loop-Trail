@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Simcoe County Loop Trail - Sergii</title>
+<script src="https://strava-embeds.com/embed.js" async></script>
+<style>
+:root{--bg:#121417;--card:#fff;--txt:#1f2328;--mut:#59636e;--acc:#fc4c02;--acc2:#e34402}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;width:100%;overflow:hidden;background:var(--bg);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.top{position:fixed;top:0;left:0;right:0;height:46px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;background:#1b1f24;border-bottom:1px solid rgba(255,255,255,.1);z-index:99}
+.ttl{font-size:14px;font-weight:600;color:#e6edf3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:10px}
+.ctr{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cnt{font-size:13px;font-variant-numeric:tabular-nums;color:#9198a1}
+.btop{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer}
+.btop:hover{background:rgba(255,255,255,.2)}
+.bot{position:fixed;bottom:0;left:0;right:0;height:52px;padding:0 16px;display:flex;align-items:center;justify-content:center;gap:14px;background:#1b1f24;border-top:1px solid rgba(255,255,255,.1);z-index:99}
+.nbtn{background:var(--acc);color:#fff;border:none;border-radius:8px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0}
+.nbtn:hover:not(:disabled){background:var(--acc2)}
+.nbtn:disabled{background:#30363d;color:#8b949e;cursor:not-allowed}
+.dots{display:flex;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:.2s}
+.dot.on{background:var(--acc);transform:scale(1.25)}
+.stg{position:fixed;top:46px;bottom:52px;left:0;right:0;display:flex;align-items:center;justify-content:center;padding:12px 16px;overflow:hidden}
+.sl{position:absolute;width:calc(100% - 32px);max-width:960px;height:calc(100% - 24px);background:var(--card);color:var(--txt);border-radius:14px;padding:16px 24px;box-shadow:0 20px 50px rgba(0,0,0,.5);display:flex;flex-direction:column;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;z-index:1;transition:opacity .2s}
+.sl.on{opacity:1;visibility:visible;pointer-events:auto;z-index:5}
+.cov{text-align:center;padding:32px 24px;align-items:center;justify-content:center}
+.bdg{display:inline-block;background:#fff2ec;color:var(--acc);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.cov h1{font-size:42px;line-height:1.25;margin-bottom:28px;color:var(--txt)}
+.cov h1 span{display:block;font-size:32px;font-weight:600;color:var(--mut);margin-top:6px}
+.end h1{font-size:56px;margin-bottom:16px}
+.end p{font-size:18px;color:var(--mut)}
+.hnt{font-size:14px;color:var(--mut);background:#f6f8fa;padding:10px 18px;border-radius:8px;border:1px solid #d0d7de}
+kbd{background:#fff;border:1px solid #afb8c1;border-radius:4px;padding:2px 6px;font-family:monospace;font-size:13px}
+.hd{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eaeef2;padding-bottom:8px;margin-bottom:10px;flex-shrink:0}
+.hd h2{font-size:20px;color:var(--txt)}
+.tag{font-size:13px;font-weight:700;color:var(--acc);margin-left:8px}
+.vp{flex:1 1 auto;min-height:0;width:100%;overflow:auto;display:flex;justify-content:center;align-items:flex-start}
+.wr{width:100%;min-width:680px;display:flex;justify-content:center}
+.ov{flex:1 1 auto;min-height:0;width:100%;display:flex;flex-direction:column;gap:10px}
+.st{width:100%;flex-shrink:0;background:#f6f8fa;border:1px solid #d0d7de;border-radius:8px;padding:8px 12px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.si{min-width:0;padding:2px 6px;border-right:1px solid #e1e4e8}
+.si:last-child{border-right:none}
+.slb{font-size:10px;font-weight:600;text-transform:uppercase;color:var(--mut);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svl{font-size:14px;font-weight:700;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc{flex:1 1 auto;min-height:0;width:100%;border-radius:8px;overflow:hidden;border:1px solid #d0d7de}
+.mc iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:640px){
+.stg{padding:8px}.sl{width:calc(100% - 16px);height:calc(100% - 16px);padding:12px 14px;border-radius:10px}
+.cov h1{font-size:28px;margin-bottom:20px}.cov h1 span{font-size:21px}.end h1{font-size:40px}.end p{font-size:15px}
+.hd h2{font-size:16px}.st{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 4px;padding:6px 8px}
+.si{border-right:none;padding:2px 4px}.slb{font-size:9px}.svl{font-size:12px}
+.nbtn{padding:6px 12px;font-size:12px}.bot{gap:8px;padding:0 10px}.dots{gap:4px}.dot{width:7px;height:7px}
+.btop{padding:4px 8px;font-size:11px}
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const sl=Array.from(document.querySelectorAll('.sl')),pb=document.getElementById('pb'),nb=document.getElementById('nb'),sc=document.getElementById('sc'),dc=document.getElementById('dc'),fb=document.getElementById('fb'),sb=document.getElementById('sb');
+let cur=0,mf=true;
+sl.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.className='dot'+(i===0?' on':'');d.onclick=()=>go(i);dc.appendChild(d)});
+const dots=Array.from(document.querySelectorAll('.dot'));
+function align(s){const v=s.querySelector('.vp');if(!v)return;if(!mf){v.scrollTop=0;return}const f=v.querySelector('iframe');v.scrollTop=(f&&f.offsetHeight>v.clientHeight)?Math.min(f.offsetHeight-v.clientHeight,260):0}
+function go(i){if(i<0||i>=sl.length)return;cur=i;sl.forEach((s,x)=>{s.classList.toggle('on',x===cur);if(x===cur){requestAnimationFrame(()=>align(s));setTimeout(()=>align(s),150)}});dots.forEach((d,x)=>d.classList.toggle('on',x===cur));sc.textContent=`${cur+1} / ${sl.length}`;pb.disabled=cur===0;nb.disabled=cur===sl.length-1}
+pb.onclick=()=>go(cur-1);nb.onclick=()=>go(cur+1);
+sb.onclick=()=>{mf=!mf;sb.textContent=mf?'View: Map Focus':'View: Top (Photos)';align(sl[cur])};
+function fs(){if(!document.fullscreenElement)document.documentElement.requestFullscreen().catch(()=>{});else document.exitFullscreen().catch(()=>{})}
+fb.onclick=fs;
+document.addEventListener('keydown',e=>{
+if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(cur+1)}
+else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1)}
+else if(e.key==='Home'){e.preventDefault();go(0)}
+else if(e.key==='End'){e.preventDefault();go(sl.length-1)}
+else if(e.key.toLowerCase()==='f')fs();
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>50)go(cur+(d<0?1:-1))},{passive:true});
+setTimeout(()=>{if(window.StravaEmbeds&&window.StravaEmbeds.process)window.StravaEmbeds.process();sl.forEach(align)},1000);
+go(0);
+});
+</script>
+</head>
+<body>
+<header class="top"><div class="ttl">Simcoe County Loop Trail - Sergii</div><div class="ctr"><button type="button" class="btop" id="sb">View: Map Focus</button><span class="cnt" id="sc">1 / 10</span><button type="button" class="btop" id="fb">⛶ Fullscreen</button></div></header>
+<footer class="bot"><button type="button" class="nbtn" id="pb">← Previous</button><div class="dots" id="dc"></div><button type="button" class="nbtn" id="nb">Next →</button></footer>
+<main class="stg">
+<section class="sl cov on"><span class="bdg">Show &amp; Tell</span><h1>Simcoe County Loop Trail<span>Sergii</span></h1><div class="hnt">Use <kbd>←</kbd> and <kbd>→</kbd> arrow keys to switch slides</div></section>
+<section class="sl"><div class="hd"><h2>Adventure #1</h2><span class="tag">1 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="18722915064" data-style="standard" data-from-embed="false" data-token="9sKgoxUc_XYbFmLpJXPr5_Qt3xN7ALbakh6VQnZ53YA"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #2</h2><span class="tag">2 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="19103568600" data-style="standard" data-from-embed="false" data-token="6zh6BWvrsKfojfIdXcqPyoX_v3d6VLy8_PsIxBX2P8Q"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #3</h2><span class="tag">3 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="19563785225" data-style="standard" data-from-embed="false" data-token="xnE3l-HPZXSoAOezQuwhf7NoR5raA0G5n6J1p25fI3E"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #4</h2><span class="tag">4 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="20534045162" data-style="standard" data-from-embed="false" data-token="PxTJkV-nhkfZnSMLFzjSPtcJtxlsFq46MkbhRWNM1s4"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #5</h2><span class="tag">5 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="20822542211" data-style="standard" data-from-embed="false" data-token="vFiwHSPgVaoTFAk3rfUDZDnFqZMNO-RG8Mtltmoj9GM"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #6</h2><span class="tag">6 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="21062614000" data-style="standard" data-from-embed="false" data-token="R50uP1IDTd09OvbeR4JDj0CIUVnXmLN9GrMXkeDO3Sk"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Adventure #7</h2><span class="tag">7 / 7</span></div><div class="vp"><div class="wr"><div class="strava-embed-placeholder" data-embed-type="activity" data-embed-id="21076731851" data-style="standard" data-from-embed="false" data-token="sNDt5nmix87EIQK-ND3Af9hO-dXFHlIO13yvStmsJj0"></div></div></div></section>
+<section class="sl"><div class="hd"><h2>Full Route Map (179 km Loop)</h2><span class="tag">Overview</span></div><div class="ov"><aside class="st"><div class="si"><div class="slb">Distance</div><div class="svl">178.9 km</div></div><div class="si"><div class="slb">Duration</div><div class="svl">27h 03m</div></div><div class="si"><div class="slb">Avg Speed</div><div class="svl">6.6 km/h</div></div><div class="si"><div class="slb">Elevation</div><div class="svl">140–288 m</div></div><div class="si"><div class="slb">Climb / Desc</div><div class="svl">+515 / -514 m</div></div></aside><div class="mc"><iframe src="https://www.google.com/maps/d/u/4/embed?mid=16ddFJJEIr4LoqnihjgCKoAvjqAUgwYE&ehbc=2E312F" allowfullscreen loading="lazy"></iframe></div></div></section>
+<section class="sl cov end"><span class="bdg">Thank You</span><h1>The end!</h1><p>Simcoe County Loop Trail • 179 km Completed</p></section>
+</main>
+</body>
+</html>
